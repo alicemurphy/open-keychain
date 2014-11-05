@@ -1,6 +1,10 @@
 buildscript {
     repositories {
+        def androidHome = System.getenv("ANDROID_HOME")
         mavenCentral()
+        maven {
+            url "$androidHome/extras/android/m2repository/"
+        }
     }
 
     dependencies {
@@ -12,7 +16,6 @@ buildscript {
 allprojects {
     repositories {
         mavenCentral()
-    }
 }
 
 task wrapper(type: Wrapper) {
